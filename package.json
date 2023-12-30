@@ -1,0 +1,16 @@
+{
+    // name should be the same as your cloud/server host name.
+    "name": "aftxrlifx",
+    "version": "1.0.0",
+    "description": "A Node.js application for serving random images",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    // author can be whatever
+    "author": "jaxx",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
