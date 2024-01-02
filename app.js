@@ -3,13 +3,20 @@ const fs = require("fs");
 const path = require("path");
 const app = express();
 
+app.use((req, res, next) => {
+  if (req.get('host') === 'cdn.jaxx1337.xyz' && req.originalUrl === '/') {
+    return res.redirect(301, 'https://cdn.jaxx1337.xyz/jaxx.png');
+  }
+  next();
+});
+
 const imageDir = path.join(__dirname, "Images"); 
 
 app.get("/", (req, res) => {
-  res.send("Huge thanks to nismo#1337 for helping me out with all the cloud stuff (Hella confusing)");
+  res.send("Redirecting to -> https://cdn.jaxx1337.site/jaxx.png");
 });
 
-app.get("/meow.png", (req, res) => {
+app.get("/jaxx.png", (req, res) => {
   fs.readdir(imageDir, (err, files) => {
     if (err) {
       console.error("Error reading directory:", err);
